@@ -41,8 +41,15 @@ public:
     }
 
     void Insert(int n, bool aumento, Nodo* A){
-        cout<<"Insert"<<endl;
-        if (A == NULL){
+        if(A == raiz){
+            raiz = new Nodo();
+            raiz->dato = n;
+            raiz->FB = 0;
+            raiz->izq = NULL;
+            raiz->der = NULL;
+            aumento = true;
+            raiz->borrado = false;
+        }else if (A == NULL){
             A = new Nodo();
             A->dato = n;
             A->FB = 0;
