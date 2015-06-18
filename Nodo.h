@@ -6,10 +6,10 @@ using namespace std;
 
 class Nodo{
 public:
-    int dato, FB; // FB es la altura del subarbol izquierdo menos la altura del subarbol derecho
+    int dato, altura;
     Nodo* izq, *der;
-    bool borrado;
-    Nodo(){
+    Nodo(int dato){
+        this->dato = dato;
         izq = NULL;
         der = NULL;
     }

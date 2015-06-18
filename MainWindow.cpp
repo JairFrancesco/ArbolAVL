@@ -33,7 +33,7 @@ void MainWindow::on_pushButton_2_clicked()//Eliminar
     msg.setText("Accion NO Realizada");
     if(ui->txtValor->text() != ""){
         int valor = ui->txtValor->text().toInt();
-        avl->Borrar(avl->raiz, valor);
+        avl->Eliminar(avl->raiz, valor);
         msg.setText("Accion Realizada");
     }
     msg.exec();
