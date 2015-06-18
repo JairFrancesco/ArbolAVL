@@ -51,3 +51,11 @@ void MainWindow::on_pushButton_3_clicked()//Pertenece
     }
     msg.exec();
 }
+
+void MainWindow::on_pushButton_4_clicked()//InOrden
+{
+    if(avl->raiz){
+        cout<<"Raiz: "<<avl->raiz->dato<<endl;
+        avl->printInOrden(avl->raiz);
+    }
+}

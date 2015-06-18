@@ -6,8 +6,7 @@ class ArbolAVL{
 public:
     Nodo* raiz = NULL;
     ArbolAVL(){
-        raiz = NULL;
-        cout<<"Nuevo Arbol"<<endl;
+        raiz = NULL;\
     }
 
     void rotarLL(Nodo* &A){ //precond: el árbol necesita una rotacion LL
@@ -40,16 +39,8 @@ public:
         rotarRR(A);
     }
 
-    void Insert(int n, bool aumento, Nodo* A){
-        if(A == raiz){
-            raiz = new Nodo();
-            raiz->dato = n;
-            raiz->FB = 0;
-            raiz->izq = NULL;
-            raiz->der = NULL;
-            aumento = true;
-            raiz->borrado = false;
-        }else if (A == NULL){
+    void Insert(int n, bool aumento, Nodo* &A){
+        if (A == NULL){//Si el nodo no existe
             A = new Nodo();
             A->dato = n;
             A->FB = 0;
@@ -59,6 +50,7 @@ public:
             A->borrado = false;
         }else{
             if (n < A->dato){
+                cout<<"Try to insert in "<<A->dato<<" Izquierda"<<endl;
                 Insert(n, aumento, A->izq);
                 if (aumento){
                     switch (A->FB){
@@ -82,6 +74,7 @@ public:
                     }
                 }
             }else{
+                cout<<"Try to insert in "<<A->dato<<" derecha"<<endl;
                 Insert(n, aumento, A->der);
                 if (aumento){
                     switch (A->FB){
@@ -112,7 +105,9 @@ public:
 
     void Insertar(int n){
         bool aumento;
+        cout<<"Try to insert in raiz"<<endl;
         Insert(n, aumento, raiz);
+        cout<<"Insert finished"<<endl<<endl;
     }
 
     bool EsVacio(Nodo* A){
@@ -145,6 +140,15 @@ public:
         }else{
             Borrar(A->der, n);
         }
+    }
+
+    void printInOrden(Nodo* A){
+        if(A->izq)
+            printInOrden(A->izq);
+        if(!A->borrado)
+            cout<<A->dato<<endl;
+        if(A->der)
+            printInOrden(A->der);
     }
 };
 

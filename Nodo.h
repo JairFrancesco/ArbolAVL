@@ -12,7 +12,6 @@ public:
     Nodo(){
         izq = NULL;
         der = NULL;
-        cout<<"Nuevo Nodo"<<endl;
     }
 };
 
