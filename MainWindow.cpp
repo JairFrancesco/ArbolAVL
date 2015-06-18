@@ -59,3 +59,13 @@ void MainWindow::on_pushButton_4_clicked()//InOrden
         avl->printInOrden(avl->raiz);
     }
 }
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    avl->rotarIzquierda(avl->raiz);
+}
+
+void MainWindow::on_pushButton_6_clicked()
+{
+    avl->rotarDerecha(avl->raiz);
+}
